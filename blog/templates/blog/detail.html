@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/side-menu.css' %}" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+    <title>杆子哥的网站-日志</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+
+
+
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/side-menu-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="css/layouts/side-menu.css">
+        <!--<![endif]-->
+</head>
+<body>
+
+
+
+
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <a class="pure-menu-heading" >目录</a>
+
+            <ul class="pure-menu-list">
+              {% if captures %}
+                {% for i in captures %}
+                  <li class="pure-menu-item"><a href="{% url 'blog:detail' blog.id i.id %}" class="pure-menu-link">{{i.capture}}</a></li>
+                {% endfor %}
+              {% endif %}
+                <li class="pure-menu-item" class="menu-item-divided pure-menu-selected">
+                    <a href="{% url 'blog:index' %}" class="pure-menu-link">返回博客</a>
+                </li>
+
+                <li class="pure-menu-item"><a href="{% url 'home:home' %}" class="pure-menu-link">返回主页</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="header">
+            <h1>{{blog.title}}</h1>
+            <h2>——By {{blog.author}}</h2>
+        </div>
+
+        <div class="content">
+            <p>
+              {% if captures %}
+                {{capture.content|safe}}
+              {% endif %}
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="{% static 'blog/js/ui.js' %}"></script>
+
+</body>
+</html>

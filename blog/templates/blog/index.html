@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/side-menu.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/blog.css' %}" />
+<style>
+.border-bottom{border-bottom: 1px solid #eee;
+padding: 1em 0}
+</style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+    <title>杆子哥的网站-博客</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/side-menu-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="css/layouts/side-menu.css">
+        <!--<![endif]-->
+</head>
+<body>
+
+
+
+
+
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <a class="pure-menu-heading" href="{% url 'home:home' %}">主页</a>
+
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="{% url 'blog:index' %}" class="pure-menu-link">博客</a></li>
+                <li class="pure-menu-item"><a href="{% url 'photo:index' %}" class="pure-menu-link">图集</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+      <div class="content">
+            <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+                <h1 class="content-subhead">Pinned Post</h1>
+
+                <!-- A single blog post -->
+                {% if pined_blogs %}
+                    <section class="post">
+                      {% for blog in pined_blogs %}
+                        <header class="post-header">
+
+                            <a class="post-title" href="{% url 'blog:detail' blog.id blog.detail_set.all.0.id %}">{{blog.title}} </a>
+
+                            <p class="post-meta">
+                                By <a class="post-author">{{blog.author}}</a> <a class="post-category post-category-js" href="#">{{blog.category}}</a>
+                            </p>
+                        </header>
+
+                        <div class="post-description">
+                            <p class="border-bottom">
+                                {{blog.summary}}
+                            </p>
+                        </div>
+                      {% endfor %}
+                    </section>
+                {% endif %}
+            </div>
+
+            <div class="posts">
+                <h1 class="content-subhead">Recent Posts</h1>
+                {% if latest_blogs %}
+                    <section class="post">
+                      {% for blog in latest_blogs %}
+                          <header class="post-header">
+
+                              <a class="post-title" href="{% url 'blog:detail' blog.id  blog.detail_set.all.0.id %}">{{blog.title}} </a>
+
+                              <p class="post-meta">
+                                  By <a class="post-author">{{blog.author}}</a> <a class="post-category post-category-js" href="#">{{blog.category}}</a>
+                              </p>
+                          </header>
+
+                        <div class="post-description">
+                            <p class="border-bottom">
+                                {{blog.summary}}
+                            </p>
+                        </div>
+                      {% endfor %}
+                    </section>
+                {% endif %}
+
+
+            </div>
+
+            <div class="page pure-menu pure-menu-horizontal">
+                <ul>
+                    <li class="pure-menu-item"><a href="{% url 'blog:page' pre_page %}" class="pure-menu-link">上一页</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">第{{page}}页</a></li>
+                    <li class="pure-menu-item"><a href="{% url 'blog:page' next_page %}" class="pure-menu-link">下一页</a></li>
+                </ul>
+            </div>
+      </div>
+      <div class="footer">
+        Who Can Deny The Joy It Brings, When You Find The Special Thing.
+      </div>
+    </div>
+</div>
+
+
+
+
+<script src="{% static 'blog/js/ui.js' %}"></script>
+
+</body>
+</html>

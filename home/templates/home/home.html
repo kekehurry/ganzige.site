@@ -1,0 +1,218 @@
+<!doctype html>
+
+<html lang="en">
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'home/css/layouts/marketing.css' %}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a responsive product landing page.">
+    <title>杆子哥的网站</title>
+    <style>
+    .splash-container{background: url({{background.image.url}});
+
+
+    background-size: 100% 100%}
+    .photo-box{
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+    text-align: center;
+    }
+    .photo-box img {
+        width: 100%;
+        height: auto;
+        min-height: 150px;
+    }
+
+    .photo-box-half{
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    line-height:0em
+    }
+    .photo-box-half img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .photo-box aside,.photo-box-half aside{position: absolute;
+        bottom: 0;
+        right: 0;
+        padding:0em 0em;
+        color: white;
+        width: 100%;
+        font-size: 100%;
+        opacity: 0.7;
+        vertical-align:bottom;
+        text-align: right;
+        background: -moz-linear-gradient(top,  rgba(16,27,30,0) 0%, rgba(12,2,2,1) 90%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(16,27,30,0)), color-stop(90%,rgba(12,2,2,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00101b1e', endColorstr='#0c0202',GradientType=0 ); /* IE6-9 */
+    }
+    .l-box{padding:1.5em}
+    .border-bottom{border-bottom: 1px solid #eee;
+    padding: 1em 0}
+
+
+    </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="css/layouts/marketing.css">
+        <!--<![endif]-->
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="">杆子哥的网站</a>
+
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="{% url 'home:home' %}" class="pure-menu-link">主页</a></li>
+            <li class="pure-menu-item"><a href="{% url 'blog:index' %}" class="pure-menu-link">博客</a></li>
+            <li class="pure-menu-item"><a href="{% url 'photo:index' %}" class="pure-menu-link">图集</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="splash-container" >
+    <div class="splash">
+      {% if background %}
+        <p class="splash-head">
+            {{background.title}}
+        </p>
+        <p class="splash-subhead">
+            {{background.summary}}
+        </p>
+      {% endif %}
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <div class="content">
+      <h2 class="content-head is-center">Rencent Post</h2>
+      <div class="pure-g">
+        {% if blogs %}
+          {% for blog in blogs %}
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                <h3 class="content-subhead">
+                  <a href="{% url 'blog:detail' blog.id 1 %}" style=text-decoration:none>
+                    {{blog.title}}
+                  </a>
+                </h3>
+                <p >
+                    {{blog.summary}}
+                </p>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+      </div>
+    </div>
+
+    <div class="ribbon l-box-lrg pure-g" >
+
+      <div class=" photo-box-half l-box pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+            <a href="/photo/">
+              <h2 class="content-head content-head-ribbon is-left">Recent Photography</h2>
+            </a>
+
+            <p class="is-left">
+              图像的故事
+            </p>
+          </div>
+      {% if recent_photos %}
+        {% for photo in recent_photos|slice:":6" %}
+          <div class=" photo-box-half is-left pure-u-1 pure-u-md-1-2 pure-u-lg-1-5">
+           <a href="{% url 'photo:detail' photo.id %}">
+           <img alt="recent photography" class="pure-img-responsive" src="{{photo.photo.url}}">
+           </a>
+        </div>
+        {% endfor %}
+      {% endif %}
+      {% if recent_photos %}
+        <div class=" photo-box-half is-left pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+          <a href="{% url 'photo:detail' recent_photos.6.id %}">
+            <img alt="recent photography" class="pure-img-responsive" src="{{recent_photos.6.photo.url}}">
+          </a>
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div class="content">
+        <h2 class="content-head is-center border-bottom">记录  ·  分享  ·  交流</h2>
+
+        <div class="pure-g">
+            <div class=" pure-u-1 pure-u-md-2-5">
+              <h4>留言板</h4>
+                <form class="pure-form pure-form-stacked" action="" method="post">
+                  {% csrf_token %}
+                  <p>
+                    {{message}}
+                  </p>
+                  <fieldset>
+                    <textarea type="text" placeholder='' name="message"></textarea>
+                  </fieldset>
+                  <button type="submit" class="pure-button pure-button-primary">提交</button>
+                </form>
+            </div>
+
+            <div class="l-box pure-u-1 pure-u-md-3-5">
+              <h4>关于杆子哥</h4>
+              <p>
+                淌过无数坑，霸得蛮杆子哥的网站终于建成了！网站初期功能尚有许多不完善的地方，
+                杆子哥也在不断地学习填坑，各位小伙伴如果碰到什么问题，请直接联系杆子哥或者在
+                留言板上留言说明，非常感谢~
+              </p>
+                <h4>联系杆子哥</h4>
+                <p>
+                    邮箱：kekehurry@hotmail.com
+                </p>
+                <p>
+                    QQ:3477795429
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer l-box is-center">
+
+    </div>
+
+</div>
+
+
+
+
+</body>
+</html>
