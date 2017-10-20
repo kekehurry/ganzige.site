@@ -7,12 +7,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A layout example that shows off a responsive product landing page.">
-    <title>杆子哥的网站</title>
-    <style>
-    .splash-container{background: url({{background.image.url}});
-
-
-    background-size: 100% 100%}
+   <title>杆子哥的网站</title>
+   <style>
+   {% if background %}
+     .splash-container{background: url({{background.0.image.url}});
+    background-size: 100% 100%;}
+   {% endif %}
     .photo-box{
     overflow: hidden;
     position: relative;
@@ -105,10 +105,10 @@
     <div class="splash">
       {% if background %}
         <p class="splash-head">
-            {{background.title}}
+            {{background.0.title}}
         </p>
         <p class="splash-subhead">
-            {{background.summary}}
+            {{background.0.summary}}
         </p>
       {% endif %}
     </div>
@@ -157,7 +157,7 @@
         </div>
         {% endfor %}
       {% endif %}
-      {% if recent_photos %}
+      {% if recent_photos.6 %}
         <div class=" photo-box-half is-left pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
           <a href="{% url 'photo:detail' recent_photos.6.id %}">
             <img alt="recent photography" class="pure-img-responsive" src="{{recent_photos.6.photo.url}}">
@@ -206,7 +206,7 @@
     </div>
 
     <div class="footer l-box is-center">
-
+            Who Can Deny The Joy It Brings, When You Find The Special Thing.
     </div>
 
 </div>
