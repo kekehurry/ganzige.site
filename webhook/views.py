@@ -9,6 +9,6 @@ def webhook(request):
     if json and json['commits'][0]['committer']['name'] == 'kekehurry':
         os.system('chmod a+x /usr/www/webhook/webhook.sh')
         status = os.popen('/usr/www/webhook/webhook.sh')
-        return HttpResponse(status)
+        return HttpResponse('Done!')
     else:
         return HttpResponse('something wrong!')
