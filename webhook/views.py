@@ -6,10 +6,9 @@ from django.http import HttpResponse
 
 def webhook(request):
     json = request.POST
-    status = ''
-    if json and json['commits'][0]['committer']['email'] == 'kekehurry':
+    if json and json['commits'][0]['committer']['name'] == 'kekehurry':
         os.system('chmod a+x /usr/www/webhook/webhook.sh')
         status = os.popen('/usr/www/webhook/webhook.sh')
         return HttpResponse(status)
     else:
-        return HttpResponse(status='something wrong!')
+        return HttpResponse('something wrong!')
