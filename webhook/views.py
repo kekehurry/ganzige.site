@@ -9,13 +9,9 @@ from django.views.decorators.csrf import csrf_exempt
 def webhook(request):
     if request.method == 'POST':
         data = request.body
-        try:
-            with open('/usr/www/json.txt', 'wb') as f:
-                f.write(data)
-        except Exception as e:
-            pass
-        os.system('chmod a+x /usr/www/webhook.sh')
-        status = os.popen('/usr/www/webhook.sh')
+        if data["commits"][1]["committer"]["name"] == "kekehurry":
+            os.system('chmod a+x /usr/www/webhook.sh')
+            status = os.popen('/usr/www/webhook.sh')
         return HttpResponse('post_recieved')
     else:
         return HttpResponse('unknow_request')
