@@ -1,6 +1,5 @@
 
 import os
-import json
 # Create your views here.
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -9,9 +8,9 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def webhook(request):
     if request.method == 'POST':
-        data = json.loads(request.body)
+        data = request.body
         try:
-            with open('/usr/www/json.txt') as f:
+            with open('/usr/www/json.txt', 'wb') as f:
                 f.write(data)
         except Exception as e:
             pass
