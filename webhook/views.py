@@ -12,4 +12,4 @@ def webhook(request):
         os.system('chmod a+x /usr/www/webhook.sh')
         status = os.popen('/usr/www/webhook.sh')
     else:
-        return Http404
+        raise Http404
