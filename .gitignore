@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 
 # media&photos
-photo/
 media/
 
 # C extensions
