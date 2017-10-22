@@ -2,8 +2,10 @@ from django.shortcuts import render
 import os
 # Create your views here.
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
 
+@csrf_exempt
 def webhook(request):
     json = request.POST
     if json and json['commits'][0]['committer']['name'] == 'kekehurry':
