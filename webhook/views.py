@@ -36,5 +36,5 @@ def webhook(request):
     json = request.POST
     os.system('chmod a+x /usr/www/webhook.sh')
     status = os.popen('/usr/www/webhook.sh')
-    send_mail(status.readlines()[0])
-    return str(status.readlines()[0])
+    send_mail('Done')
+    return HttpResponse(json)
