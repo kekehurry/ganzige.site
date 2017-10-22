@@ -3,6 +3,5 @@ cd /usr/www
 git fetch --all
 git reset --hard origin/master
 git pull
-pid=`lsof -i:8001| awk 'NR==2{print $2}'`　
-kill -9 `eval $pid`　
+$ps -ef | grep uwsgi | grep -v grep | cut -c 9-15 | xargs kill -s 9
 nohup uwsgi --ini /usr/www/uwsgi.ini
