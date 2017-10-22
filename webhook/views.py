@@ -7,4 +7,4 @@ from django.http import HttpResponse
 def webhook(request):
     os.popen('chomd a+x /usr/www/webhook/webhook.sh')
     status = os.popen('webhook.sh')
-    return HttpResponse(status)
+    return HttpResponse(status+'nobody')
