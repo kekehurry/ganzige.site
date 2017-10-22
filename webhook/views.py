@@ -11,8 +11,5 @@ def webhook(request):
     if json:
         os.system('chmod a+x /usr/www/webhook.sh')
         status = os.popen('/usr/www/webhook.sh')
-        with open('/usr/www/json.txt') as f:
-            f.writelines(json)
-        return HttpResponse('post_recieved')
     else:
         return Http404
