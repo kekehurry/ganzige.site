@@ -20,11 +20,11 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^$', include('home.urls', namespace='home')),
-    url(r'webhook/', include('webhook.urls', namespace='webhook'),
+    url(r'webhook/', include('webhook.urls', namespace='webhook')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^blog/', include('blog.urls', namespace='blog')),
-    url(r'^photo/', include('photo.urls', namespace='photo'))
+    url(r'^photo/', include('photo.urls', namespace='photo')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
