@@ -13,4 +13,4 @@ def webhook(request):
         status = os.popen('/usr/www/webhook.sh')
         return HttpResponse('post_recieved')
     else:
-        return HttpResponse('unknow_post')
+        return HttpResponse('unknow_request')
