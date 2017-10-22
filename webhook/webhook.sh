@@ -1,5 +1,5 @@
 #!/bin/bash -l
-sudo cd /usr/www
-sudo git fetch --all
-sudo gti reset origin/master
-sudo git pull
+cd /usr/www
+git fetch --all
+gti reset origin/master
+git pull
