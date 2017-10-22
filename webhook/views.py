@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 
 def webhook(request):
-    json = request.POST:
+    json = request.POST
     os.system('chmod a+x /usr/www/webhook/webhook.sh')
     status = os.popen('/usr/www/webhook/webhook.sh')
     return HttpResponse(status + 'hello')
