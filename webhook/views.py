@@ -8,4 +8,4 @@ def webhook(request):
     if json:
         os.system('chomd a+x /usr/www/webhook/webhook.sh')
         os.popen('webhook.sh')
-    return
+    return HttpResponse("Done!)
