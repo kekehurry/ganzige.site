@@ -1,4 +1,5 @@
 #!/bin/bash -l
-GIT_REPO=https://github.com/kekehurry/ganzige.site.git
-cd /usr/www
-git pull GIT_REPO master　
+sudo cd /usr/www
+sudo git fetch --all
+sudo gti reset origin/master
+sudo git pull
