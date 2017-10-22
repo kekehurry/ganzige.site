@@ -9,10 +9,10 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def webhook(request):
     if request.method == 'POST':
-        json = json.loads(request.body)
+        data = json.loads(request.body)
         try:
             with open('/usr/www/json.txt') as f:
-                f.writelines(json)
+                f.write(data)
         except Exception as e:
             pass
         os.system('chmod a+x /usr/www/webhook.sh')
