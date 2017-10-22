@@ -5,6 +5,6 @@ from django.http import HttpResponse
 
 
 def webhook(request):
-    os.poen('chomd a+x /usr/www/webhook/webhook.sh')
+    os.popen('chomd a+x /usr/www/webhook/webhook.sh')
     status = os.popen('webhook.sh')
     return HttpResponse(status)
