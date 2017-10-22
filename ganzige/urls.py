@@ -20,6 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^$', include('home.urls', namespace='home')),
+    url(r'webhook/', webhook.views.webhook, name='webhook')
     url(r'^admin/', include(admin.site.urls)),
     url(r'ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^blog/', include('blog.urls', namespace='blog')),
