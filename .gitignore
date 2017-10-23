@@ -6,8 +6,6 @@ __pycache__/
 #migrations
 migrations/
 
-#webhook
-webhook/
 
 # media&photos
 media/
