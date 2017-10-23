@@ -11,8 +11,9 @@ def webhook(request):
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
         if data["commits"][0]["committer"]["name"] == "kekehurry":
+            os.system('nohup git pull > log.txt 2>&1 &')
             os.system('chmod a+x /usr/www/webhook.sh')
-            status = os.popen('nohup /usr/www/webhook.sh > log.txt 2>&1 &')
+            status = os.popen('/usr/www/webhook.sh')
         return HttpResponse('post_recieved')
     else:
         return HttpResponse('unknow_post')
