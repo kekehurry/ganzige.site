@@ -1,7 +1,6 @@
 #!/bin/bash -l
 date
 cd /usr/www
-rm uwsgi.log
 python manage.py makemigrations
 python manage.py migrate
 ps -ef|grep uwsgi|grep -v grep|cut -c 9-15|xargs kill -s 9
