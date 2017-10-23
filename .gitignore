@@ -6,6 +6,10 @@ __pycache__/
 # media&photos
 media/
 
+#testfile
+log.txt
+mail.py
+settings.py
 
 # C extensions
 *.so
@@ -103,3 +107,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+ganzige/settings.py
+ganzige/settings.py
+ganzige/settings.py
