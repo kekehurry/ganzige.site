@@ -6,12 +6,6 @@ __pycache__/
 # media&photos
 media/
 
-<<<<<<< HEAD
-# settings
-ganzige/settings.py
-
-=======
->>>>>>> parent of 16c4914... settings
 #webhook
 webhook/
 
