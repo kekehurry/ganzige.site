@@ -1,5 +1,4 @@
 #!/bin/bash -l
-date
 cd /usr/www
 python manage.py makemigrations
 python manage.py migrate
