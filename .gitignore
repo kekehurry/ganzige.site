@@ -6,6 +6,8 @@ __pycache__/
 # media&photos
 media/
 
+#settings
+settings.py
 
 # C extensions
 *.so
