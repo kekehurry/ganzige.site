@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#migrations
+migrations/
+
 # media&photos
 media/
 
@@ -107,6 +110,3 @@ ENV/
 
 # mypy
 .mypy_cache/
-ganzige/settings.py
-ganzige/settings.py
-ganzige/settings.py
