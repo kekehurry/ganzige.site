@@ -9,9 +9,6 @@ media/
 #webhook
 /webhook
 
-#settings
-settings.py
-
 # C extensions
 *.so
 
