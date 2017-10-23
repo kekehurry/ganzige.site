@@ -17,8 +17,6 @@ def webhook(request):
             r2 = os.popen('/usr/www/webhook.sh')
             with open('/usr/www/log.txt', 'w', encoding='utf-8') as f:
                 f.write(r1.read())
-                f.write('/n')
-                f.write(r2.read())
                 f.close()
         return HttpResponse('post_recieved')
     else:
