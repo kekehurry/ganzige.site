@@ -1,4 +1,5 @@
 #!/bin/bash -l
+date
 cd /usr/www
 git fetch --all
 git reset --hard origin/master
