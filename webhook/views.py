@@ -14,7 +14,7 @@ def webhook(request):
             os.system(
                 'git fetch --all ; git reset --hard origin/master ; git pull')
             os.system('chmod a+x /usr/www/webhook.sh')
-            status = os.popen('nohup /usr/www/webhook.sh > log.txt 2>&1 &')
+            status = os.popen('/usr/www/webhook.sh')
         return HttpResponse('post_recieved')
     else:
         return HttpResponse('unknow_post')
