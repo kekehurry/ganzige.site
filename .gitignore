@@ -6,8 +6,7 @@ __pycache__/
 # media&photos
 media/
 
-#webhook
-/webhook
+
 
 # C extensions
 *.so
