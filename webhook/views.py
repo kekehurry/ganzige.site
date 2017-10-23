@@ -19,6 +19,7 @@ def webhook(request):
                 f.write(r1.read())
                 f.write('/n')
                 f.write(r2.read())
+                f.close()
         return HttpResponse('post_recieved')
     else:
         return HttpResponse('unknow_post')
