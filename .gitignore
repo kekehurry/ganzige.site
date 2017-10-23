@@ -9,6 +9,7 @@ media/
 #testfile
 log.txt
 mail.py
+settings.py
 
 # C extensions
 *.so
