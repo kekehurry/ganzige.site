@@ -2,8 +2,6 @@
 date
 cd /usr/www
 rm uwsgi.log
-git fetch --all
-git reset --hard origin/master
 git pull
 python manage.py makemigrations
 python manage.py migrate
