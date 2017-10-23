@@ -15,8 +15,7 @@ def webhook(request):
                 'date ; git fetch --all ; git reset --hard origin/master ; git pull')
             os.system('chmod a+x /usr/www/webhook.sh')
             r2 = os.popen('/usr/www/webhook.sh')
-            os.remove('/usr/www/log.txt')
-            with open('/usr/www/log.txt', encoding='utf-8') as f:
+            with open('/usr/www/log.txt', 'w', encoding='utf-8') as f:
                 f.write(r1.read())
                 f.write('/n')
                 f.write(r2.read())
