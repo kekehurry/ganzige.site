@@ -1,23 +1,24 @@
 from django.shortcuts import render
-
+from django.core.paginator import Paginator
 # Create your views here.
 
 from .models import Blog
 
 
 def index(request, page=1):
-    num = len(Blog.objects.all())
-    blogs = Blog.objects.order_by('-pub_time')
     page = int(page)
-    if page < int(num / 3) + 1:
+    blogs = Blog.objects.order_by('-pub_time')
+    p = Paginator(blogs, 3)
+    current_page = p.page(page)
+    if current_page.has_next():
         next_page = page + 1
     else:
         next_page = page
-    if page >= 2:
+    if current_page.has_previous():
         pre_page = page - 1
     else:
-        pre_page = 1
-    latest_blogs = blogs[(page - 1) * 3:page * 3]
+        pre_page = page
+    latest_blogs = current_page.object_list
     pined_blogs = Blog.objects.filter(pined=True).order_by('-pub_time')[:2]
 
     context = {'latest_blogs': latest_blogs,
