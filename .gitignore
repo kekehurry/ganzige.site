@@ -6,6 +6,9 @@ __pycache__/
 # media&photos
 media/
 
+#webhook
+/webhook
+
 #settings
 settings.py
 
