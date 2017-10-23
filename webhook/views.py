@@ -11,7 +11,7 @@ def webhook(request):
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
         if data["commits"][0]["committer"]["name"] == "kekehurry":
-            r1 = os.system(
+            r1 = os.popen(
                 'date ; git fetch --all ; git reset --hard origin/master ; git pull')
             os.system('chmod a+x /usr/www/webhook.sh')
             r2 = os.popen('/usr/www/webhook.sh')
