@@ -6,6 +6,8 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class Author(models.Model):
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=100, null=True, blank=True)
+    portrait = models.ImageField(
+        upload_to='photo/portrait', default='photo/portrait/default.jpg')
 
     def __str__(self):
         return self.name

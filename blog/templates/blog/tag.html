@@ -12,7 +12,7 @@ padding: 1em 0}
     color: #aaa;
     padding-top: 0.4em;
     padding-bottom: 0em;
-    font-size:150%;
+    font-size:200%;
     font-weight: 800;
     letter-spacing: 0.1em;
     text-align:justify;
@@ -67,46 +67,22 @@ padding: 1em 0}
     </div>
     <div id="main">
       <div class="content">
+        <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+              {% if tag %}
+                <h1 class="content-head ">{{tag.tag}}</h1>
+              {% endif %}
+            </div>
             <!-- A wrapper for all the blog posts -->
             <div class="posts">
-                <h1 class="content-subhead">Pinned Post</h1>
-                <!-- A single blog post -->
-                {% if pined_blogs %}
-                    <section class="post">
-                      {% for blog in pined_blogs %}
-                        <header class="post-header">
-                            <a href="{% url 'blog:author' blog.author.id %}">
-                                <img width="48" height="48" alt="{{blog.author}}" class="post-avatar" src="{{blog.author.portrait.url}}" >
-                            </a>
-                            <a class="post-title" href="{% url 'blog:detail' blog.id blog.detail_set.all.0.id %}">{{blog.title}} </a>
-
-                            <p class="post-meta">
-                                By <a class="post-author" href="{% url 'blog:author' blog.author.id %}">{{blog.author}}</a>
-                                {% for t in blog.tag.all %}
-                                   <a class="post-category post-category-js" href="{% url 'blog:tag' t.id %}">{{t.tag}}</a>
-                                {% endfor %}
-                        </header>
-
-                        <div class="post-description">
-                            <p class="border-bottom">
-                                {{blog.summary|truncatewords:"50"}}
-                            </p>
-                        </div>
-                      {% endfor %}
-                    </section>
-                {% endif %}
-            </div>
-
-            <div class="posts">
                 <h1 class="content-subhead">Recent Posts</h1>
-                {% if latest_blogs %}
+                {% if blogs %}
                     <section class="post">
-                      {% for blog in latest_blogs %}
+                      {% for blog in blogs %}
                           <header class="post-header">
-                            <a href="{% url 'blog:author' blog.author.id %}">
-                                <img width="48" height="48" alt="{{blog.author}}" class="post-avatar" src="{{blog.author.portrait.url}}" >
-                            </a>
+
                               <a class="post-title" href="{% url 'blog:detail' blog.id  blog.detail_set.all.0.id %}">{{blog.title}} </a>
+
                               <p class="post-meta">
                                   By <a class="post-author" href="{% url 'blog:author' blog.author.id %}">{{blog.author}}</a>
                                   {% for t in blog.tag.all %}
@@ -127,13 +103,6 @@ padding: 1em 0}
 
             </div>
 
-            <div class="page pure-menu pure-menu-horizontal">
-                <ul>
-                    <li class="pure-menu-item"><a href="{% url 'blog:page' pre_page %}" class="pure-menu-link">上一页</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">第{{page}}页</a></li>
-                    <li class="pure-menu-item"><a href="{% url 'blog:page' next_page %}" class="pure-menu-link">下一页</a></li>
-                </ul>
-            </div>
       </div>
       <div class="footer">
         Who Can Deny The Joy It Brings, When You Find The Special Thing.

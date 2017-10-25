@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 # Create your views here.
 
-from .models import Blog
+from .models import Blog, Author, Tag
 
 
 def index(request, page=1):
@@ -31,3 +31,15 @@ def detail(request, blog_id, capture_id=1):
     captures = blog.detail_set.all()
     capture = blog.detail_set.get(id=int(capture_id))
     return render(request, 'blog/detail.html', {'blog': blog, 'capture': capture, 'captures': captures})
+
+
+def author(request, author_id):
+    author = Author.objects.get(id=author_id)
+    blogs = author.blog_set.all().order_by('-pub_time')
+    return render(request, 'blog/author.html', {'blogs': blogs, 'author': author})
+
+
+def tag(request, tag_id):
+    tag = Tag.objects.get(id=tag_id)
+    blogs = tag.blog_set.all().order_by('-pub_time')
+    return render(request, 'blog/tag.html', {'blogs': blogs, 'tag': tag})
