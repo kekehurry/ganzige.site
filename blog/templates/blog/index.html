@@ -68,13 +68,15 @@ padding: 1em 0}
                             <a class="post-title" href="{% url 'blog:detail' blog.id blog.detail_set.all.0.id %}">{{blog.title}} </a>
 
                             <p class="post-meta">
-                                By <a class="post-author">{{blog.author}}</a> <a class="post-category post-category-js" href="#">{{blog.category}}</a>
-                            </p>
+                                By <a class="post-author">{{blog.author}}</a>
+                                {% for t in blog.tag.all %}
+                                   <a class="post-category post-category-js" href="#">{{t.tag}}</a>
+                                {% endfor %}
                         </header>
 
                         <div class="post-description">
                             <p class="border-bottom">
-                                {{blog.summary}}
+                                {{blog.summary|truncatewords:"100"}}
                             </p>
                         </div>
                       {% endfor %}
@@ -92,13 +94,16 @@ padding: 1em 0}
                               <a class="post-title" href="{% url 'blog:detail' blog.id  blog.detail_set.all.0.id %}">{{blog.title}} </a>
 
                               <p class="post-meta">
-                                  By <a class="post-author">{{blog.author}}</a> <a class="post-category post-category-js" href="#">{{blog.category}}</a>
+                                  By <a class="post-author">{{blog.author}}</a>
+                                  {% for t in blog.tag.all %}
+                                     <a class="post-category post-category-js" href="#">{{t.tag}}</a>
+                                  {% endfor %}
                               </p>
                           </header>
 
                         <div class="post-description">
                             <p class="border-bottom">
-                                {{blog.summary}}
+                                {{blog.summary|truncatewords:"100"}}
                             </p>
                         </div>
                       {% endfor %}
