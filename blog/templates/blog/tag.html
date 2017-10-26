@@ -18,6 +18,8 @@ padding: 1em 0}
     text-align:justify;
     margin-top: 2em;
 }
+.pad{padding-top:0em;
+     padding-bottom: 2em}
 </style>
 <head>
     <meta charset="utf-8">
@@ -100,6 +102,19 @@ padding: 1em 0}
                     </section>
                 {% endif %}
             </div>
+            <div class="posts">
+                <h1 class="content-subhead ">Tag List</h1>
+                <div class="pad pure-menu pure-menu-horizontal">
+                  <ul>
+                    {% if tag_list %}
+                      {% for t in tag_list %}
+                         <li class="pure-menu-item"><a class="post-category post-category-js" href="{% url 'blog:tag' t.id %}">{{t.tag}}</a></li>
+                      {% endfor %}
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+
             <div class="page pure-menu pure-menu-horizontal">
                 <ul>
                   {% if current_page %}
@@ -115,11 +130,11 @@ padding: 1em 0}
                   {% endif %}
                 </ul>
             </div>
-
       </div>
       <div class="footer">
         Who Can Deny The Joy It Brings, When You Find The Special Thing.
       </div>
+
     </div>
 </div>
 
