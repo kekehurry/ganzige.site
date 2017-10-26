@@ -11,16 +11,8 @@ def index(request, page=1):
     p = Paginator(photos, 8)
     current_page = p.page(page)
     recent_photos = current_page.object_list
-    if current_page.has_next():
-        next_page = page + 1
-    else:
-        next_page = page
-    if current_page.has_previous():
-        pre_page = page - 1
-    else:
-        pre_page = page
     context = {'recent_photos': recent_photos,
-               'next_page': next_page, 'pre_page': pre_page, 'page': page}
+               'current_page': current_page}
     return render(request, 'photo/index.html', context)
 
 

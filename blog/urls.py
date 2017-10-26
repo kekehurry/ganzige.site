@@ -7,6 +7,10 @@ urlpatterns = [
     url(r'^blog_(?P<blog_id>[0-9]+)/(?P<capture_id>[0-9]+)/$',
         views.detail, name='detail'),
     url(r'^author_(?P<author_id>[0-9]+)/$', views.author, name='author'),
+    url(r'^author_(?P<author_id>[0-9]+)/(?P<page>[0-9]+)/$',
+        views.author, name='author_page'),
     url(r'^tag_(?P<tag_id>[0-9]+)/$', views.tag, name='tag'),
+    url(r'^tag_(?P<tag_id>[0-9]+)/(?P<page>[0-9]+)/$',
+        views.tag, name='tag_page'),
 
 ]

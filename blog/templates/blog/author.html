@@ -113,6 +113,22 @@ padding: 1em 0}
 
             </div>
 
+            <div class="page pure-menu pure-menu-horizontal">
+                <ul>
+                  {% if current_page %}
+                    {% if current_page.has_previous %}
+                      <li class="pure-menu-item"><a href="{% url 'blog:author_page' author.id current_page.previous_page_number %}" class="pure-menu-link">上一页</a></li>
+                    {% endif %}
+                      <li class="pure-menu-item"><a href="{% url 'blog:author_page' author.id current_page.number %}" class="pure-menu-link">第{{current_page.number}}页</a></li>
+                    {% if current_page.has_next %}
+                      <li class="pure-menu-item"><a href="{% url 'blog:author_page' author.id current_page.next_page_number %}" class="pure-menu-link">下一页</a></li>
+                    {% else %}
+                        <li class="pure-menu-item"><a href="{% url 'blog:author' author.id  %}" class="pure-menu-link">返回首页</a></li>
+                    {% endif %}
+                  {% endif %}
+                </ul>
+            </div>
+
       </div>
       <div class="footer">
         Who Can Deny The Joy It Brings, When You Find The Special Thing.

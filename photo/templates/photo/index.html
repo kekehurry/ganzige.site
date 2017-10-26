@@ -162,11 +162,19 @@
 
 
       <div class="page pure-menu pure-menu-horizontal">
-            <ul>
-                <li class="pure-menu-item"><a href="{% url 'photo:page' pre_page %}" class="pure-menu-link">上一页</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">第{{page}}页</a></li>
-                <li class="pure-menu-item"><a href="{% url 'photo:page' next_page %}" class="pure-menu-link">下一页</a></li>
-            </ul>
+        <ul>
+          {% if current_page %}
+            {% if current_page.has_previous %}
+              <li class="pure-menu-item"><a href="{% url 'photo:page' current_page.previous_page_number %}" class="pure-menu-link">上一页</a></li>
+            {% endif %}
+              <li class="pure-menu-item"><a href="{% url 'photo:page' current_page.number %}" class="pure-menu-link">第{{current_page.number}}页</a></li>
+            {% if current_page.has_next %}
+              <li class="pure-menu-item"><a href="{% url 'photo:page' current_page.next_page_number %}" class="pure-menu-link">下一页</a></li>
+            {% else %}
+              <li class="pure-menu-item"><a href="{% url 'photo:index' %}" class="pure-menu-link">返回首页</a></li>
+            {% endif %}
+          {% endif %}
+        </ul>
       </div>
       <div class="pure-u-1">
             <div class="l-box white">
@@ -177,7 +185,7 @@
                 </p>
 
                 <p>
-                  
+
                 </p>
             </div>
         </div>
