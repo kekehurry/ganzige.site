@@ -25,3 +25,7 @@ class AuthorAdmin(admin.ModelAdmin):
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Author, AuthorAdmin)
+
+admin.site.site_header = '杆子哥的网站'
+admin.site.site_title = '杆子哥的网站'
+admin.site.index_title = '后台管理'
