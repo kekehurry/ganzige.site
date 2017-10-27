@@ -154,6 +154,8 @@
            <a href="{% url 'photo:detail' photo.id %}">
            <img alt="recent photography" class="pure-img-responsive" src="{{photo.photo.url}}">
            </a>
+           <aside class="photo-box-caption">
+           </aside>
         </div>
         {% endfor %}
       {% endif %}
@@ -162,6 +164,8 @@
           <a href="{% url 'photo:detail' recent_photos.6.id %}">
             <img alt="recent photography" class="pure-img-responsive" src="{{recent_photos.6.photo.url}}">
           </a>
+          <aside class="photo-box-caption">
+          </aside>
         </div>
       {% endif %}
 
