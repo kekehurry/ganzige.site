@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 def webhook(request):
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
-        if data["commits"][0]["committer"]["name"] == "kekehurry":
+        if data["ref"] == "refs/heads/master" and data["commits"][0]["committer"]["name"] == "kekehurry":
             r1 = os.popen(
                 ' git fetch --all ; git reset --hard origin/master ; git pull')
             os.system('chmod a+x /usr/www/webhook.sh')
