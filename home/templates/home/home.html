@@ -142,7 +142,7 @@
       {% if recent_photos %}
         {% for photo in recent_photos|slice:":6" %}
           <div class=" photo-box-half is-left pure-u-1 pure-u-md-1-2 pure-u-lg-1-5">
-           <a href="{% url 'photo:detail' photo.id %}">
+           <a href="{% url 'photo:detail' 1 photo.id %}">
            <img alt="recent photography" class="pure-img-responsive" src="{{photo.photo.url}}">
            </a>
            <aside class="photo-box-caption">
@@ -152,7 +152,7 @@
       {% endif %}
       {% if recent_photos.6 %}
         <div class=" photo-box-half is-left pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-          <a href="{% url 'photo:detail' recent_photos.6.id %}">
+          <a href="{% url 'photo:detail' 1 recent_photos.6.id %}">
             <img alt="recent photography" class="pure-img-responsive" src="{{recent_photos.6.photo.url}}">
           </a>
           <aside class="photo-box-caption">
