@@ -36,7 +36,7 @@ a{text-decoration:none;}
  */
 .l-box {
     padding: 1em;
-    opacity:0.8;
+    opacity:0.9;
 }
 
 .l-box-lrg {
@@ -194,17 +194,12 @@ a.pure-button-primary {
 .content-wrapper {
     /* These styles are required for the "scroll-over" effect */
     position: absolute;
-    top: 87%;
+    top:85%;
     width: 100%;
     min-height: 12%;
     z-index: 2;
     background: white;
 
-}
-
-/* We want to give the content area some more padding */
-.content {
-    padding: 1em 1em 3em;
 }
 
 /* This is the class used for the main content headers (<h2>) */
