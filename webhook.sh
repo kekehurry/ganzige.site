@@ -6,4 +6,6 @@ python manage.py migrate
 ps -ef|grep uwsgi|grep -v grep|cut -c 9-15|xargs kill -s 9
 nohup uwsgi --ini /usr/www/uwsgi.ini > /dev/null 2>&1 &
 lsof -i :8001
+nginx -s stop
+nginx
 python mail.py
