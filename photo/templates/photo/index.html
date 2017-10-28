@@ -83,14 +83,14 @@
       <div class="pure-g">
         {% if recent_photos %}
           <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-            <a href="{% url 'photo:detail' recent_photos.0.id %}">
+            <a href="{% url 'photo:detail' current_page.number recent_photos.0.id %}">
                 <img src="{{recent_photos.0.photo.url}}"
                      alt="{{recent_photos.0.title}}">
             </a>
 
             <aside class="photo-box-caption">
                 <span>
-                    {{recent_photos.1.pub_time}}
+                    {{recent_photos.0.pub_time}}
                 </span>
             </aside>
         </div>
@@ -104,13 +104,13 @@
         {% if recent_photos|slice:"1:4" %}
           {% for photo in recent_photos|slice:"1:4" %}
             <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-            <a href="{% url 'photo:detail' photo.id %}">
+            <a href="{% url 'photo:detail' current_page.number photo.id %}">
                 <img src="{{photo.photo.url}}"
                      alt="{{photo.title}}">
             </a>
 
             <aside class="photo-box-caption">
-                <span>{{recent_photos.0.pub_time}}</a></span>
+                <span>{{photo.pub_time}}</a></span>
             </aside>
           </div>
           {% endfor %}
@@ -118,13 +118,13 @@
         {% if recent_photos|slice:"4:5" %}
           {% for photo in recent_photos|slice:"4:5" %}
             <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-2-3">
-             <a href="{% url 'photo:detail' photo.id %}">
+             <a href="{% url 'photo:detail' current_page.number photo.id %}">
                 <img src="{{photo.photo.url}}"
                      alt="{{photo.title}}">
              </a>
 
              <aside class="photo-box-caption">
-                <span>{{recent_photos.0.pub_time}}</a></span>
+                <span>{{photo.pub_time}}</a></span>
              </aside>
             </div>
           {% endfor %}
@@ -132,13 +132,13 @@
         {% if recent_photos|slice:"5:7" %}
           {% for photo in recent_photos|slice:"5:7" %}
             <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-             <a href="{% url 'photo:detail' photo.id %}">
+             <a href="{% url 'photo:detail' current_page.number photo.id %}">
                  <img src="{{photo.photo.url}}"
                      alt="{{photo.title}}">
              </a>
 
              <aside class="photo-box-caption">
-                 <span>{{recent_photos.0.pub_time}}</a></span>
+                 <span>{{photo.pub_time}}</a></span>
              </aside>
             </div>
           {% endfor %}
@@ -146,13 +146,13 @@
         {% if recent_photos|slice:"7:8" %}
           {% for photo in recent_photos|slice:"7:8" %}
             <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-2-3">
-              <a href="{% url 'photo:detail' photo.id %}">
+              <a href="{% url 'photo:detail' current_page.number photo.id %}">
                 <img src="{{photo.photo.url}}"
                      alt="{{photo.title}}">
               </a>
 
               <aside class="photo-box-caption">
-                <span>{{recent_photos.0.pub_time}}</a></span>
+                <span>{{photo.pub_time}}</a></span>
               </aside>
             </div>
           {% endfor %}

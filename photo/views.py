@@ -16,6 +16,6 @@ def index(request, page=1):
     return render(request, 'photo/index.html', context)
 
 
-def detail(request, image_id):
+def detail(request, page, image_id):
     image = Photo.objects.get(id=image_id)
-    return render(request, 'photo/detail.html', {'image': image})
+    return render(request, 'photo/detail.html', {'image': image, 'page': page})

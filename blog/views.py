@@ -18,11 +18,11 @@ def index(request, page=1):
     return render(request, 'blog/index.html', context)
 
 
-def detail(request, blog_id, capture_id=1):
+def detail(request, page, blog_id, capture_id=1):
     blog = Blog.objects.get(id=blog_id)
     captures = blog.detail_set.all()
     capture = blog.detail_set.get(id=int(capture_id))
-    return render(request, 'blog/detail.html', {'blog': blog, 'capture': capture, 'captures': captures})
+    return render(request, 'blog/detail.html', {'blog': blog, 'capture': capture, 'captures': captures, 'page': page})
 
 
 def author(request, author_id, page=1):

@@ -102,7 +102,7 @@ padding: 1em 0}
                     <section class="post">
                       {% for blog in blogs %}
                           <header class="post-header">
-                              <a class="post-title" href="{% url 'blog:detail' blog.id  blog.detail_set.all.0.id %}">{{blog.title}} </a>
+                              <a class="post-title" href="{% url 'blog:detail' 1 blog.id  blog.detail_set.all.0.id %}">{{blog.title}} </a>
                               <p class="post-meta">
                                   By <a class="post-author" href="{% url 'blog:author' blog.author.id %}">{{blog.author}}</a>
                                   {% for t in blog.tag.all %}
