@@ -12,7 +12,7 @@ class Message_board(models.Model):
 
 class Background(models.Model):
     title = models.CharField(max_length=50)
-    summary = models.CharField(max_length=100)
+    summary = models.CharField(max_length=100, blank=True)
     image = models.ImageField(upload_to='background/%Y%m')
     pub_time = models.DateTimeField(
         'date published', auto_now_add=True, editable=True)
