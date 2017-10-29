@@ -31,8 +31,10 @@ padding: 1em 0}
 }
 .pad{padding-top:0em;
      padding-bottom: 2em}
-.grey {background: #3C3C3C;
-     font-size: 70%;}
+.grey1 {background: #3C3C3C;
+     font-size: 90%;}
+.grey2{background: white;
+     font-size: 90%;}
 </style>
 <head>
     <meta charset="utf-8">
@@ -76,9 +78,13 @@ padding: 1em 0}
 
             <ul class="pure-menu-list">
                 {% if tag_list %}
-                {% for t in tag_list %}
-                  <li class="grey pure-menu-item"><a href="{% url 'blog:tag' t.id %}" class="pure-menu-link">{{t.tag}}</a></li>
-                {% endfor %}
+                  {% for t in tag_list %}
+                    {% if t.id = tag.id %}
+                      <li class="grey2 pure-menu-item"><a href="{% url 'blog:tag' t.id %}" class="pure-menu-link">{{t.tag}}</a></li>
+                    {% else %}
+                      <li class="grey1 pure-menu-item"><a href="{% url 'blog:tag' t.id %}" class="pure-menu-link">{{t.tag}}</a></li>
+                    {% endif %}
+                  {% endfor %}
                 {% endif %}
                 <li class="pure-menu-item"><a href="{% url 'photo:index' %}" class="pure-menu-link">图集</a></li>
                 <li class="pure-menu-item"><a href="{% url 'home:home' %}" class="pure-menu-link">主页</a></li>

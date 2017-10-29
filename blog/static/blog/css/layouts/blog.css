@@ -5,7 +5,7 @@ a {
 }
 a:hover,
 a:focus {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 h3 {
@@ -107,6 +107,7 @@ h3 {
     text-align: center;
     padding: 1em;
     font-size: 80%;
+    position:fixed;
     bottom: 0;
-    width: 100%
+    width: 100%;
 }
