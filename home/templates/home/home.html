@@ -45,7 +45,7 @@
         background: linear-gradient(to bottom,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* W3C */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00101b1e', endColorstr='#0c0202',GradientType=0 ); /* IE6-9 */
     }
-    .l-box{padding:1.5em}
+    .l-box{padding:1.5em 1.5em 3em 1.5em}
     .border-bottom{border-bottom: 1px solid #eee;
     padding: 1em 0}
 
@@ -86,7 +86,7 @@
 
         <ul class="pure-menu-list">
             <li class="pure-menu-item"><a href="{% url 'home:home' %}" class="pure-menu-link">主页</a></li>
-            <li class="pure-menu-item"><a href="{% url 'blog:index' %}" class="pure-menu-link">博客</a></li>
+            <li class="pure-menu-item"><a href="{% url 'blog:index' %}" class="pure-menu-link">笔记</a></li>
             <li class="pure-menu-item"><a href="{% url 'photo:index' %}" class="pure-menu-link">图集</a></li>
         </ul>
     </div>
@@ -174,9 +174,9 @@
                     {{message}}
                   </p>
                   <fieldset>
-                    <textarea type="text" placeholder='' name="message"></textarea>
-                  </fieldset>
+                  <textarea type="text" placeholder='' name="message"></textarea>
                   <button type="submit" class="pure-button pure-button-primary">提交</button>
+                  </fieldset>
                 </form>
             </div>
 
