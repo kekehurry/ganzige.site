@@ -48,6 +48,7 @@
     .l-box{padding:1.5em 1.5em 3em 1.5em}
     .border-bottom{border-bottom: 1px solid #eee;
     padding: 1em 0}
+    .l-box-r{padding:1.5em}
 
 
     </style>
@@ -111,7 +112,7 @@
       <div class="pure-g">
         {% if blogs %}
           {% for blog in blogs %}
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+            <div class="l-box-r pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
 
                 <h3 class="content-subhead">
                   <a href="{% url 'blog:detail' 1 blog.id blog.detail_set.all.0.id %}" style=text-decoration:none>
