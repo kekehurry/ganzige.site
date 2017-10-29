@@ -29,6 +29,9 @@ padding: 1em 0}
 .page {
     text-align: center;
 }
+.grey {background: #D3D3D3;
+font-size: 70%;}
+
 </style>
 <head>
     <meta charset="utf-8">
@@ -71,9 +74,12 @@ padding: 1em 0}
             <a class="pure-menu-heading" href="{% url 'home:home' %}">主页</a>
 
             <ul class="pure-menu-list">
+                <li class="pure-menu-item" class="menu-item-divided pure-menu-selected">
+                  笔记
+              </li>
               {% if tag_list %}
                 {% for t in tag_list %}
-                  <li class="pure-menu-item"><a href="{% url 'blog:tag' t.id %}" class="pure-menu-link">{{t.tag}}</a></li>
+                  <li class="grey pure-menu-item"><a href="{% url 'blog:tag' t.id %}" class="pure-menu-link">{{t.tag}}</a></li>
                 {% endfor %}
               {% endif %}
                 <li class="pure-menu-item"><a href="{% url 'photo:index' %}" class="pure-menu-link">图集</a></li>
