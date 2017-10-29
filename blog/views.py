@@ -8,13 +8,14 @@ from .models import Blog, Author, Tag
 def index(request, page=1):
     page = int(page)
     blogs = Blog.objects.order_by('-pub_time')
+    tag_list = Tag.objects.all()
     p = Paginator(blogs, 3)
     current_page = p.page(page)
     latest_blogs = current_page.object_list
     pined_blogs = Blog.objects.filter(pined=True).order_by('-pub_time')[:2]
 
     context = {'latest_blogs': latest_blogs,
-               'pined_blogs': pined_blogs, 'current_page': current_page}
+               'pined_blogs': pined_blogs, 'current_page': current_page,'tag_list':tag_list}
     return render(request, 'blog/index.html', context)
 
 
@@ -38,7 +39,7 @@ def tag(request, tag_id, page=1):
     page = int(page)
     tag = Tag.objects.get(id=tag_id)
     tag_list = Tag.objects.all()
-    blogs = tag.blog_set.all().order_by('-pub_time')
+    blogs = tag.blog_set.all().order_by('pub_time')
     p = Paginator(blogs, 3)
     current_page = p.page(page)
     return render(request, 'blog/tag.html', {'blogs': blogs, 'tag': tag, 'current_page': current_page, 'tag_list': tag_list})

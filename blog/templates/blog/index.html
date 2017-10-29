@@ -71,7 +71,11 @@ padding: 1em 0}
             <a class="pure-menu-heading" href="{% url 'home:home' %}">主页</a>
 
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="{% url 'blog:index' %}" class="pure-menu-link">笔记</a></li>
+              {% if tag_list %}
+                {% for t in tag_list %}
+                  <li class="pure-menu-item"><a href="{% url 'blog:tag' t.id %}" class="pure-menu-link">{{t.tag}}</a></li>
+                {% endfor %}
+              {% endif %}
                 <li class="pure-menu-item"><a href="{% url 'photo:index' %}" class="pure-menu-link">图集</a></li>
             </ul>
         </div>
