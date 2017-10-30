@@ -127,19 +127,7 @@ padding: 1em 0}
                 {% endif %}
             </div>
             <div class="posts">
-                <h1 class="content-subhead ">Tag List</h1>
-                <div class="pad pure-menu pure-menu-horizontal">
-                  <ul>
-                    {% if tag_list %}
-                      {% for t in tag_list %}
-                         <li class="pure-menu-item"><a class="post-category post-category-js" href="{% url 'blog:tag' t.id %}">{{t.tag}}</a></li>
-                      {% endfor %}
-                    {% endif %}
-                  </ul>
-                </div>
-              </div>
-
-            <div class="page pure-menu pure-menu-horizontal">
+                <div class="page pure-menu pure-menu-horizontal">
                 <ul>
                   {% if current_page %}
                     {% if current_page.has_previous %}
@@ -153,6 +141,7 @@ padding: 1em 0}
                     {% endif %}
                   {% endif %}
                 </ul>
+                </div>
             </div>
       </div>
       <div class="footer">

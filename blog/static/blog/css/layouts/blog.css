@@ -24,7 +24,6 @@ h3 {
     top: auto;
     margin: 3em auto;
 }
-
 .content-subhead {
     text-transform: uppercase;
     color: #aaa;
@@ -107,7 +106,6 @@ h3 {
     text-align: center;
     padding: 1em;
     font-size: 80%;
-    position:fixed;
     bottom: 0;
     width: 100%;
 }
