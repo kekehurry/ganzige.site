@@ -99,13 +99,3 @@ h3 {
 .page .pure-menu a:focus {
     background: none;
 }
-
-.footer {
-    background: black;
-    color: #666;
-    text-align: center;
-    padding: 1em;
-    font-size: 80%;
-    bottom: 0;
-    width: 100%;
-}

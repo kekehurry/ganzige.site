@@ -240,7 +240,7 @@ a.pure-button-primary {
     background: black;
     color: #666;
     text-align: center;
-    padding: 1em ;
+    padding: 1em 1em;
     font-size: 100%;
     position:fixed;
     bottom: 0;

@@ -4,13 +4,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'photo/css/layouts/side-menu.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'photo/css/layouts/gallery.css' %}" />
 <style>
-.contents{
-  margin: 0 auto;
-  padding: 0em 0em 0;
-  max-width: 1000px;
-  margin-bottom: 50px;
-  line-height: 1.8em;
-}
 .pure-g{
    background: #191818;
 }
@@ -79,7 +72,7 @@
             </ul>
         </div>
     </div>
-    <div id="main contents">
+    <div id="main" class="contents">
       <div class="pure-g">
         {% if recent_photos %}
           <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
