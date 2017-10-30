@@ -17,9 +17,11 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
+from . import views
 
 urlpatterns = [
     url(r'^$', include('home.urls', namespace='home')),
+    url(r'^MP_verify_KdrNjdeEBujKWLaZ.txt', views.get_txt, name="txt")
     url(r'webhook/', include('webhook.urls', namespace='webhook')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'ckeditor/', include('ckeditor_uploader.urls')),
