@@ -108,7 +108,7 @@ font-size: 90%;}
 
                         <div class="post-description">
                             <p class="border-bottom">
-                                {{blog.summary|truncatewords:"30"}}
+                                {{blog.summary|slice:"30"}}
                             </p>
                         </div>
                       {% endfor %}
