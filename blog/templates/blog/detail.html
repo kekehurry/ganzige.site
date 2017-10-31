@@ -2,6 +2,11 @@
 <html lang="en">
 {% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/side-menu.css' %}" />
+<style>
+.grey1 {background: #3C3C3C;
+     font-size: 90%;}
+.grey2{background: white;
+     font-size: 90%;}</style>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +44,11 @@
             <ul class="pure-menu-list">
               {% if captures %}
                 {% for i in captures %}
-                  <li class="pure-menu-item"><a href="{% url 'blog:detail' page blog.id i.id %}" class="pure-menu-link">{{i.capture}}</a></li>
+                  {% if i.id = capture.id %}
+                  <li class="grey2 pure-menu-item"><a href="{% url 'blog:detail' page blog.id i.id %}" class="pure-menu-link">{{i.capture}}</a></li>
+                  {% else %}
+                  <li class="grey1 pure-menu-item"><a href="{% url 'blog:detail' page blog.id i.id %}" class="pure-menu-link">{{i.capture}}</a></li>
+                  {% endif %}
                 {% endfor %}
               {% endif %}
                 <li class="pure-menu-item" class="menu-item-divided pure-menu-selected">
@@ -59,7 +68,7 @@
 
         <div class="content">
             <p>
-              {% if captures %}
+              {% if capture %}
                 {{capture.content|safe}}
               {% endif %}
             </p>
