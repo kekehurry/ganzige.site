@@ -107,9 +107,10 @@ padding: 1em 0}
                     <section class="post">
                       {% for blog in blogs %}
                           <header class="post-header">
-
-                              <a class="post-title" href="{% url 'blog:detail' 1 blog.id  blog.detail_set.all.0.id %}">{{blog.title}} </a>
-
+                            <a href="{% url 'blog:author' blog.author.id %}">
+                                <img width="48" height="48" alt="{{blog.author}}" class="post-avatar" src="{{blog.author.portrait}}" >
+                            </a>
+                              <a class="post-title" href="{% url 'blog:detail' current_page.number blog.id  blog.detail_set.all.0.id %}">{{blog.title}} </a>
                               <p class="post-meta">
                                   By <a class="post-author" href="{% url 'blog:author' blog.author.id %}">{{blog.author}}</a>
                                   {% for t in blog.tag.all %}
@@ -119,7 +120,7 @@ padding: 1em 0}
                           </header>
 
                         <div class="post-description">
-                            <p class="border-bottom">
+                            <p class="border-bottom markdown-body">
                                 {{blog.summary|slice:"250"|add:"......"|markdown:"trusted"}}
                             </p>
                         </div>

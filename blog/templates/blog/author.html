@@ -104,9 +104,6 @@ padding: 1em 0}
                     <section class="post">
                       {% for blog in blogs %}
                           <header class="post-header">
-                            <a href="{% url 'blog:author' blog.author.id %}">
-                                <img width="48" height="48" alt="{{blog.author}}" class="post-avatar" src="{{blog.author.portrait}}" >
-                            </a>
                               <a class="post-title" href="{% url 'blog:detail' current_page.number blog.id  blog.detail_set.all.0.id %}">{{blog.title}} </a>
                               <p class="post-meta">
                                   By <a class="post-author" href="{% url 'blog:author' blog.author.id %}">{{blog.author}}</a>
