@@ -17,7 +17,7 @@ class Author(models.Model):
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=100, blank=True, null=True)
     portrait = models.CharField(
-        max_length=100, default='http://ganzige.oss-cn-shenzhen.aliyuncs.com/media/portrait/default.jpg')
+        max_length=100, default='http://ganzige.site/media/portrait/default.jpg')
 
     def __str__(self):
         return self.name

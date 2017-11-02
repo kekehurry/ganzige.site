@@ -47,6 +47,10 @@ The content `<div>` is where all your content goes.
     min-height: calc(100vh - 30px);
 
 }
+.content img{
+  max-width: 800px;
+  height: auto;
+  text-align: center;}
 .footer {
     background: black;
     color: #666;

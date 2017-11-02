@@ -70,7 +70,7 @@
         <div class="content">
             <p>
               {% if capture %}
-                {{capture.content|markdown}}
+                {{capture.content|markdown:"trusted"}}
               {% endif %}
             </p>
         </div>
