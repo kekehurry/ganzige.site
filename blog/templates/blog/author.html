@@ -1,5 +1,7 @@
 <!doctype html>
+
 <html lang="en">
+{% load markdown_deux_tags %}
 {% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/side-menu.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/blog.css' %}" />
@@ -113,7 +115,7 @@ padding: 1em 0}
 
                         <div class="post-description">
                             <p class="border-bottom">
-                                {{blog.summary|truncatewords:"50"}}
+                                {{blog.summary|slice:"250"|add:"......"|markdown:"trusted"}}
                             </p>
                         </div>
                       {% endfor %}

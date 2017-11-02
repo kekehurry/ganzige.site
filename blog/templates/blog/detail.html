@@ -3,6 +3,7 @@
 {% load markdown_deux_tags %}
 {% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/side-menu.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/markdown.css' %}" />
 <style>
 .grey1 {background: #3C3C3C;
      font-size: 90%;}
@@ -67,7 +68,7 @@
             <h2>——By {{blog.author}}</h2>
         </div>
 
-        <div class="content">
+        <div class="content markdown-body">
             <p>
               {% if capture %}
                 {{capture.content|markdown:"trusted"}}

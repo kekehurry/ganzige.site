@@ -1,6 +1,6 @@
 <!doctype html>
-
 <html lang="en">
+{% load markdown_deux_tags %}
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static 'home/css/layouts/marketing.css' %}">
 <head>
@@ -119,7 +119,7 @@
                   </a>
                 </h3>
                 <p >
-                    {{blog.summary|slice:"150"}}......
+                    {{blog.summary|slice:"150"|add:"......"|markdown:"trusted"}}
                 </p>
             </div>
           {% endfor %}
