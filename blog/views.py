@@ -8,7 +8,7 @@ from .models import Blog, Author, Tag
 def index(request, page=1):
     page = int(page)
     blogs = Blog.objects.order_by('-pub_time')
-    tag_list = Tag.objects.all()
+    tag_list = Tag.objects.all().order_by('pub_time')
     p = Paginator(blogs, 3)
     current_page = p.page(page)
     latest_blogs = current_page.object_list
@@ -38,7 +38,7 @@ def author(request, author_id, page=1):
 def tag(request, tag_id, page=1):
     page = int(page)
     tag = Tag.objects.get(id=tag_id)
-    tag_list = Tag.objects.all()
+    tag_list = Tag.objects.all().order_by('pub_time')
     blogs = tag.blog_set.all().order_by('pub_time')
     p = Paginator(blogs, 3)
     current_page = p.page(page)
