@@ -1,13 +1,12 @@
 from django.db import models
-from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 
 class Author(models.Model):
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=100, null=True, blank=True)
-    portrait = models.ImageField(
-        upload_to='photo/portrait', default='photo/portrait/default.jpg')
+    portrait = models.CharField(
+        max_length=100, default='http://ganzige.oss-cn-shenzhen.aliyuncs.com/media/portrait/default.jpg')
 
     def __str__(self):
         return self.name
@@ -47,7 +46,7 @@ class Blog(models.Model):
 
 class Detail(models.Model):
     blog = models.ForeignKey(Blog)
-    content = RichTextUploadingField(null=True, blank=True)
+    content = models.TextField(null=True, blank=True)
     capture = models.CharField(max_length=100, default='No.1')
     id = models.AutoField(primary_key=True)
 

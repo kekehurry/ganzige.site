@@ -3,11 +3,21 @@ from django.db import models
 # Create your models here.
 
 
+class Tag(models.Model):
+    tag = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.tag
+
+    def blog_list(self):
+        return ','.join([t.title for t in self.blog_set.all()])
+
+
 class Author(models.Model):
     name = models.CharField(max_length=50)
     introduction = models.CharField(max_length=100, blank=True, null=True)
-    portrait = models.ImageField(
-        upload_to='portrait', default='portrait/default.jpg')
+    portrait = models.CharField(
+        max_length=100, default='http://ganzige.oss-cn-shenzhen.aliyuncs.com/media/portrait/default.jpg')
 
     def __str__(self):
         return self.name
@@ -17,11 +27,12 @@ class Author(models.Model):
 
 
 class Photo(models.Model):
+    tag = models.ManyToManyField(Tag)
     title = models.CharField(max_length=50)
     pub_time = models.DateTimeField(
         'date published', auto_now_add=True, editable=True)
     summary = models.CharField(max_length=100, blank=True, null=True)
-    photo = models.ImageField(upload_to='photo/%Y%m')
+    photo = models.CharField(max_length=100, blank=True)
     author = models.ForeignKey(Author)
 
     def __str__(self):

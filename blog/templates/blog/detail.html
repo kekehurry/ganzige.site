@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+{% load markdown_deux_tags %}
 {% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/side-menu.css' %}" />
 <style>
@@ -69,7 +70,7 @@
         <div class="content">
             <p>
               {% if capture %}
-                {{capture.content|safe}}
+                {{capture.content|markdown}}
               {% endif %}
             </p>
         </div>

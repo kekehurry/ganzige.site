@@ -10,7 +10,7 @@
    <title>杆子哥的网站</title>
    <style>
    {% if background %}
-     .splash-container{background: black url({{background.0.image.url}})  no-repeat center top;
+     .splash-container{background: black url({{background.0.image}})  no-repeat center top;
     background-size: auto 100%;
     }
    {% endif %}
@@ -139,7 +139,7 @@
         {% for photo in recent_photos|slice:":6" %}
           <div class=" photo-box-half is-left pure-u-1 pure-u-md-1-2 pure-u-lg-1-5">
            <a href="{% url 'photo:detail' 1 photo.id %}">
-           <img alt="recent photography" class="pure-img-responsive" src="{{photo.photo.url}}">
+           <img alt="recent photography" class="pure-img-responsive" src="{{photo.photo}}">
            </a>
            <aside class="photo-box-caption">
            </aside>
@@ -149,7 +149,7 @@
       {% if recent_photos.6 %}
         <div class=" photo-box-half is-left pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
           <a href="{% url 'photo:detail' 1 recent_photos.6.id %}">
-            <img alt="recent photography" class="pure-img-responsive" src="{{recent_photos.6.photo.url}}">
+            <img alt="recent photography" class="pure-img-responsive" src="{{recent_photos.6.photo}}">
           </a>
           <aside class="photo-box-caption">
           </aside>
