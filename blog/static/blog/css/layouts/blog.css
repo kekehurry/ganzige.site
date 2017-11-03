@@ -38,6 +38,9 @@ h3 {
 .post {
     padding-bottom: 2em;
 }
+.post-header {
+    margin-top: 2em;
+}
 .post-title {
     font-size: 2em;
     color: #222;
@@ -86,9 +89,6 @@ h3 {
     margin-left: 1em;
     color: #fff;
     text-shadow: 0 1px 1px #333;
-}
-.post-header {
-    margin-top: 20em;
 }
 
 .page {
