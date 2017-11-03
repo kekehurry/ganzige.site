@@ -108,10 +108,8 @@ font-size: 90%;}
                                 {% endfor %}
                         </header>
 
-                        <div class="post-description">
-                            <p class="border-bottom markdown-body">
-                                  {{blog.summary|slice:"250"|add:"......"|markdown:"trusted"}}
-                            </p>
+                        <div class="post-description border-bottom markdown-body">
+                            {{blog.summary|slice:"250"|add:"......"|markdown:"trusted"}}
                         </div>
                       {% endfor %}
                     </section>
@@ -136,10 +134,8 @@ font-size: 90%;}
                               </p>
                           </header>
 
-                        <div class="post-description">
-                            <p class="border-bottom markdown-body">
-                                {{blog.summary|slice:"250"|add:"......"|markdown:"trusted"}}
-                            </p>
+                        <div class="post-description border-bottom markdown-body">
+                              {{blog.summary|slice:"250"|add:"......"|markdown:"trusted"}}
                         </div>
                       {% endfor %}
                     </section>
