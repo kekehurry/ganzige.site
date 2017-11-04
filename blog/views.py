@@ -29,7 +29,6 @@ def detail(request, page, blog_id, capture_id=1):
 def author(request, author_id, page=1):
     page = int(page)
     author = Author.objects.get(id=author_id)
-    tag = Tag.objects.get(id=tag_id)
     tag_list = Tag.objects.all().order_by('-pub_time')
     blogs = author.blog_set.all().order_by('-pub_time')
     p = Paginator(blogs, 3)
