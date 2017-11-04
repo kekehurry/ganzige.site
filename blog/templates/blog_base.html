@@ -4,6 +4,8 @@
 {% load custom_markdown %}
 {% block static %}
   {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/side-menu.css' %}" />
+  <script src="{% static 'blog/js/ui.js' %}"></script>
   <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/blog.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/markdown.css' %}" />
   <link rel="stylesheet" href="{% static 'blog/css/layouts/styles/default.css' %}" />

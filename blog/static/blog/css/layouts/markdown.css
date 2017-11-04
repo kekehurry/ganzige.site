@@ -130,7 +130,6 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
 img { max-width: 100%; vertical-align: middle; }
 input, button, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-::before, ::after, * { box-sizing: border-box; }
 #write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
 #write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
 h1 { font-size: 2rem; }

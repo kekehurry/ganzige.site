@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="en">
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/side-menu.css' %}" />
-{% block static %}{%  endblock %}
+{% block static %}
+{% endblock %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,5 +32,4 @@
       {% block main %}{% endblock%}
     </div>
 </div>
-<script src="{% static 'js/ui.js' %}"></script>
 </body>

@@ -1,11 +1,6 @@
 <!doctype html>
 <html lang="en">
 {% extends 'photo_base.html' %}
-{% block static %}
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'photo/css/layouts/side-menu.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'photo/css/layouts/gallery.css' %}" />
-{%  endblock %}
 {% block main %}
   <div class="pure-g">
   {% if recent_photos %}

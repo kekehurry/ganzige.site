@@ -1,7 +1,12 @@
 <!doctype html>
 <html lang="en">
 {% extends 'base_base.html' %}
-{% block static %}{%  endblock %}
+{% block static %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/layouts/side-menu.css' %}" />
+<script src="{% static 'photo/js/ui.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'photo/css/layouts/gallery.css' %}" />
+{%  endblock %}
 {% block style %}
   <style>
     .pure-g{background: #191818;}
