@@ -3,13 +3,14 @@
 {% block style %}
 <style>
 h1{border-bottom: 0}
+.grey{color: #aaa}
 </style>
 {% endblock %}
 {% block content %}
   <div class="posts">
       {% if author %}
                 <h1 class="content-head ">{{author.name}}</h1>
-                <p  >{{author.introduction}}</p>
+                <p class="grey" >{{author.introduction}}</p>
       {% endif %}
   </div>
 {% endblock %}
