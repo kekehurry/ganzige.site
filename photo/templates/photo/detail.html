@@ -20,12 +20,11 @@
 {% endblock %}
 {% block main %}
     <div id="main">
-        <div class="header">
-            <h1>{{image.title}}</h1>
-            <h2>——By {{image.author.name}}</h2>
-        </div>
-
         <div class="content">
+            <div class="header">
+              <h1>{{image.title}}</h1>
+              <h2>——By {{image.author.name}}</h2>
+            </div>
             <img class=image src="{{image.photo}}" alt="{{image.title}}">
             <p>{{image.summary}}</p>
         </div>
