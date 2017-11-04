@@ -16,6 +16,7 @@
   text-align: center;
 }
 .header{margin-bottom: 2em;}
+.is_right{text-align: right;}
 </style>
 {% endblock %}
 {% block main %}
@@ -24,9 +25,9 @@
             <div class="header">
               <h1>{{image.title}}</h1>
             </div>
-            <h2>——By {{image.author.name}}</h2>
             <img class=image src="{{image.photo}}" alt="{{image.title}}">
             <p>{{image.summary}}</p>
+            <h4 class="is_right">——By {{image.author.name}}</h4>
         </div>
     </div>
 {% endblock %}
