@@ -2,15 +2,7 @@
 <html lang="en">
 {% extends 'base_base.html' %}
 {% load custom_markdown %}
-{% block static %}
-  {% load staticfiles %}
-  <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/blog.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/markdown.css' %}" />
-  <link rel="stylesheet" href="{% static 'blog/css/layouts/styles/default.css' %}" />
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-  <script src="{% static 'blog/js/highlight.pack.js'%}"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-{% endblock %}
+{% block static %}{% endblock %}
 {% block title %}{% endblock %}
 {% block style %}{% endblock %}
 {% block menu %}
