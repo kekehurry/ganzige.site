@@ -1,13 +1,7 @@
 <!doctype html>
 <html lang="en">
-{% extends 'base_base.html' %}
+{% extends 'blog_base.html' %}
 {% load custom_markdown %}
-{% block static %}
-  {% load staticfiles %}
-  <script src="{% static 'photo/js/ui.js' %}"></script>
-  <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/side-menu.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/markdown.css' %}" />
-{% endblock %}
 {% block style %}
 <style>
 .pad{padding-top:0em;
@@ -43,9 +37,9 @@
 {% endblock %}
 {% block main %}
   <div class="header">
-            <h1>{{blog.title}}</h1>
-            <h2>——By {{blog.author}}</h2>
-        </div>
+    <h1>{{blog.title}}</h1>
+    <h2>——By {{blog.author}}</h2>
+  </div>
 
   <div class="content markdown-body">
             <p>

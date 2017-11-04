@@ -12,6 +12,5 @@ def custom_markdown(value):
 
     return mark_safe(markdown.markdown(force_text(value), extensions=[
         'markdown.extensions.extra',
-        'markdown.extensions.codehilite',
         'markdown.extensions.toc',
     ]))
