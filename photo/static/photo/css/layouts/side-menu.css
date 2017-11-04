@@ -47,6 +47,10 @@ The content `<div>` is where all your content goes.
     min-height: calc(100vh - 30px);
 
 }
+.content img{
+  max-width: 800px;
+  height: auto;
+  text-align: center;}
 .footer {
     background: black;
     color: #666;
@@ -68,10 +72,10 @@ The content `<div>` is where all your content goes.
     .header h1 {
         margin: 0.2em 0;
         font-size: 3em;
-        font-weight: 300;
+        font-weight: 200;
     }
      .header h2 {
-        font-weight: 300;
+        font-weight: 100;
         color: #ccc;
         padding: 0;
         margin-top: 0;
@@ -219,8 +223,6 @@ small screens.
 Hides the menu at `48em`, but modify this based on your app's needs.
 */
 @media (min-width: 48em) {
-
-    .header,
     .content {
         padding-left: 2em;
         padding-right: 2em;

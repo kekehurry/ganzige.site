@@ -1,9 +1,8 @@
 <!doctype html>
 <html lang="en">
-{% load markdown_deux_tags %}
+{% load custom_markdown %}
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static 'home/css/layouts/marketing.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'home/css/layouts/markdown.css' %}" />
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,7 +119,7 @@
                   </a>
                 </h3>
                 <p class="markdown-body">
-                    {{blog.summary|slice:"150"|add:"......"|markdown:"trusted"}}
+                    {{blog.summary|slice:"150"|add:"......"|custom_markdown}}
                 </p>
             </div>
           {% endfor %}

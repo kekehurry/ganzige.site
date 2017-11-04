@@ -11,10 +11,10 @@ def index(request, page=1):
     tag_list = Tag.objects.all().order_by('-pub_time')
     p = Paginator(blogs, 3)
     current_page = p.page(page)
-    latest_blogs = current_page.object_list
+    blogs = current_page.object_list
     pined_blogs = Blog.objects.filter(pined=True).order_by('-pub_time')[:2]
 
-    context = {'latest_blogs': latest_blogs,
+    context = {'blogs': blogs,
                'pined_blogs': pined_blogs, 'current_page': current_page, 'tag_list': tag_list}
     return render(request, 'blog/index.html', context)
 
