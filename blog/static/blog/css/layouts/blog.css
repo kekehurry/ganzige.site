@@ -84,9 +84,20 @@ h3 {
     color: #fff;
     text-shadow: 0 1px 1px #333;
 }
+.border-bottom{border-bottom: 1px solid #eee;
+padding: 1em 0}
 
-.page {
-}
+.content-head {
+    text-transform: uppercase;
+    color: #aaa;
+    padding-top: 0.4em;
+    padding-bottom: 0em;
+    font-size:150%;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+      text-align:justify;
+    margin-top: 2em;
+  }
 .page a {
     color: #ccc;
     font-size: 80%;
@@ -94,4 +105,7 @@ h3 {
 .page .pure-menu a:hover,
 .page .pure-menu a:focus {
     background: none;
+}
+.page {
+    text-align: center;
 }

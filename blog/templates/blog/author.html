@@ -1,10 +1,9 @@
 {% extends 'blog_base.html' %}
 {% load custom_markdown %}
-{% block title %}笔记{% endblock %}
+{% block title %}杆子哥的网站-作者{% endblock %}
 {% block content %}
   <div class="posts">
               {% if author %}
-                <img width="80" height="80" alt="{{blog.author}}" class="post-avatar" src="{{author.portrait}}">
                 <h1 class="content-head ">{{author.name}}</h1>
                 <p  >{{author.introduction}}</p>
               {% endif %}
