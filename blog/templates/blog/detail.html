@@ -8,6 +8,16 @@
   <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/side-menu.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/markdown.css' %}" />
 {% endblock %}
+{% block style %}
+<style>
+.pad{padding-top:0em;
+     padding-bottom: 2em}
+.grey1 {background: #3C3C3C;
+     font-size: 90%;}
+.grey2{background: white;
+     font-size: 90%;}
+</style>
+{% endblock %}
 {% block title %}杆子哥的网站-笔记{% endblock %}
 {% block menu %}
   <div class="pure-menu">
