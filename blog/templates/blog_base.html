@@ -8,7 +8,8 @@
   <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/side-menu.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/blog.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/markdown.css' %}" />
-  <link rel="stylesheet" href="{% static 'blog/css/layouts//styles/default.css' %}" />
+  <link rel="stylesheet" href="{% static 'blog/css/layouts/styles/default.css' %}" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
   <script src="{% static 'blog/js/highlight.pack.js'%}"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}
@@ -52,7 +53,7 @@
                         </p>
                     </header>
 
-                  <div class="post-description border-bottom markdown-body">
+                  <div class="post-description border-bottom typora-export">
                         {{blog.summary|slice:"250"|add:"......"|custom_markdown}}
                   </div>
                 {% endfor %}
