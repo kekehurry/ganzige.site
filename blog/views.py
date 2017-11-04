@@ -29,10 +29,12 @@ def detail(request, page, blog_id, capture_id=1):
 def author(request, author_id, page=1):
     page = int(page)
     author = Author.objects.get(id=author_id)
+    tag = Tag.objects.get(id=tag_id)
+    tag_list = Tag.objects.all().order_by('-pub_time')
     blogs = author.blog_set.all().order_by('-pub_time')
     p = Paginator(blogs, 3)
     current_page = p.page(page)
-    return render(request, 'blog/author.html', {'blogs': blogs, 'author': author, 'current_page': current_page})
+    return render(request, 'blog/author.html', {'blogs': blogs, 'author': author, 'current_page': current_page,'tag_list':tag_list})
 
 
 def tag(request, tag_id, page=1):
