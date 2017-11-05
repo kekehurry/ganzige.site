@@ -1,5 +1,5 @@
 {% extends 'blog_base.html' %}
-{% block title %}杆子哥的网站-标签{% endblock %}
+{% block title %}{% if tag %}标签：{{tag.tag}}{% endif %}{% endblock %}
 {% block style %}
 <style>
 .pad{padding-top:0em;

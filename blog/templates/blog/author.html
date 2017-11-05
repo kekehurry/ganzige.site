@@ -1,5 +1,5 @@
 {% extends 'blog_base.html' %}
-{% block title %}杆子哥的网站-作者{% endblock %}
+{% block title %}{% if author %}作者：{{author.name}}{% endif %}{% endblock %}
 {% block style %}
 <style>
 h1{border-bottom: 0}

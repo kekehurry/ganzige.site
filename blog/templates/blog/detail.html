@@ -13,7 +13,7 @@
 h1{margin: 2em 0;}
 </style>
 {% endblock %}
-{% block title %}杆子哥的网站-笔记{% endblock %}
+{% block title %}{% if blog %}文章：{{blog.title}}{% endif %}{% endblock %}
 {% block menu %}
   <div class="pure-menu">
             <a href="{% url 'blog:page' page %}" class="pure-menu-heading" >返回笔记</a>
