@@ -2,7 +2,6 @@
 <html lang="en">
 {% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'blog/css/layouts/side-menu.css' %}" />
-<script src="{% static 'blog/js/ui.js' %}"></script>
 {% block static %}
 {% endblock %}
 <head>
@@ -35,4 +34,5 @@
       {% block main %}{% endblock%}
     </div>
 </div>
+<script src="{% static 'blog/js/ui.js' %}"></script>
 </body>
