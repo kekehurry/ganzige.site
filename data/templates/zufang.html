@@ -10,11 +10,12 @@
     <script type="text/javascript" src="{% static 'data/data.js' %}"></script>
 </head>
 <body>
-    <div id="main" style="min-height:800px;height:100%"></div>
+    <div id="main" style="height:500px"></div>
     <script type="text/javascript">
-    document.title='分析：广州租房信息可视化';
+    var cHeight=0;
+    cHeight=document.body.clientHeight;
+    document.getElementById('main').style.height=cHeight+"px";
     var myChart = echarts.init(document.getElementById('main'));
-
 option = {
     title: {
         text: '广州租房信息',
