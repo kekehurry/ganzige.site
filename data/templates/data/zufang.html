@@ -3,18 +3,22 @@
 {% load staticfiles %}
 <head>
     <meta charset="utf-8">
-    <title>ECharts</title>
-    <!-- 引入 echarts.js -->
-    <script src="{% static 'data/echarts.js' %}"></script>
+    <title>分析：广州租房信息可视化</title>
+    <script>
+    window.onload=window.onresize=function changeSize()
+    {
+    document.getElementById("main").style.height=window.innerHeight+"px";
+    }
+</script>
+    <script src="{% static 'data/echarts.min.js' %}"></script>
     <script src="http://api.map.baidu.com/api?v=2.0&ak=mfs2bZKFDwgvdH9KK6a3xhDp1T24seZP"></script>
     <script src="http://gallery.echartsjs.com/dep/echarts/latest/extension/bmap.min.js"></script>
     <script type="text/javascript" src="{% static 'data/data.js' %}"></script>
 </head>
 <body>
-    <div id="main" style="height:800px;"></div>
+    <div id="main" style="height:500px"></div>
     <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('main'));
-
 option = {
     title: {
         text: '广州租房信息',
