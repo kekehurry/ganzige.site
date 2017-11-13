@@ -4,13 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title>分析：广州租房信息可视化</title>
-    <script>
-    window.onload=window.onresize=function changeSize()
-    {
-    document.getElementById("main").style.height=window.innerHeight+"px";
-    myChart.resize();
-    }
-</script>
     <script src="{% static 'data/echarts.min.js' %}"></script>
     <script src="http://api.map.baidu.com/api?v=2.0&ak=mfs2bZKFDwgvdH9KK6a3xhDp1T24seZP"></script>
     <script src="http://gallery.echartsjs.com/dep/echarts/latest/extension/bmap.min.js"></script>
@@ -180,8 +173,14 @@ option = {
         }
     ]
 };
-
-myChart.setOption(option);
+    </script>
+    <script>
+    window.onload=function changeSize()
+    {
+    document.getElementById("main").style.height=window.innerHeight+"px";
+    myChart.resize();
+    myChart.setOption(option);
+    }
     </script>
 </body>
 </html>
