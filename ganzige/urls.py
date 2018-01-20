@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^photo/', include('photo.urls', namespace='photo')),
     url(r'^data/', include('data.urls', namespace='data')),
+    url(r'^aria2/',include('aria2.urls',namespace='aria2')),
 
 ]
 
