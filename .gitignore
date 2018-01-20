@@ -10,11 +10,6 @@ migrations/
 # media&photos
 media/
 
-#testfile
-log.txt
-mail.py
-settings.py
-
 # C extensions
 *.so
 
